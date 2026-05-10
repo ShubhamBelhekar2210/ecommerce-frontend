@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AddProduct from "./AddProduct";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -104,7 +103,7 @@ function ProductList({
 
     useEffect(() => {
         getProducts();
-    }, [page, sortBy]);
+    }, [page, sortBy, getProducts]);
 
     return (
 
