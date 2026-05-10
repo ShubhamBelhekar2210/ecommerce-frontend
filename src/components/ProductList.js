@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ function ProductList({
 
     const navigate = useNavigate();
 
-    const getProducts = async () => {
+    const getProducts = useCallback(async () => {
 
         try {
             setLoading(true);
@@ -32,9 +32,11 @@ function ProductList({
 
         } catch (error) {
             console.log(error);
+        }
+        finally {
             setLoading(false);
         }
-    };
+    }, [page, size, sortBy]);
 
     const searchProducts = async (value) => {
 
@@ -103,7 +105,7 @@ function ProductList({
 
     useEffect(() => {
         getProducts();
-    }, [page, sortBy, getProducts]);
+    }, [getProducts]);
 
     return (
 
