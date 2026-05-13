@@ -22,7 +22,7 @@ function ProductList({
         try {
             setLoading(true);
             const response = await axios.get(
-                `http://localhost:8080/products?page=${page}&size=${size}&sortBy=${sortBy}`
+                `https://ecommerce-backend-sovd.onrender.com/products?page=${page}&size=${size}&sortBy=${sortBy}`
             );
             console.log(response.data);
 
@@ -50,7 +50,7 @@ function ProductList({
             }
 
             const response = await axios.get(
-                `http://localhost:8080/products/search/${value}`
+                `https://ecommerce-backend-sovd.onrender.com/products/search/${value}`
             );
 
             setProducts(response.data);
@@ -75,7 +75,7 @@ function ProductList({
         try {
 
             await axios.delete(
-                `http://localhost:8080/products/${id}`
+                `https://ecommerce-backend-sovd.onrender.com/products/${id}`
             );
 
             toast.success("Product Deleted Successfully");

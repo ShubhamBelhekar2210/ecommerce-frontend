@@ -46,7 +46,7 @@ function AddProduct({
             if (product.id) {
 
                 await axios.put(
-                    `http://localhost:8080/products/${product.id}`,
+                    "https://ecommerce-backend-sovd.onrender.com/products/${product.id}",
                     product
                 );
 
@@ -56,7 +56,7 @@ function AddProduct({
 
                 // ADD
                 await axios.post(
-                    "http://localhost:8080/products",
+                    "https://ecommerce-backend-sovd.onrender.com/products",
                     product
                 );
 
